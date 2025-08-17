@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# env & secrets
+.env
+
+# uploads/temp
+uploads/
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

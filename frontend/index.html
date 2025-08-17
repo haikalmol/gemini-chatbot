@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gemini AI Chatbot</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="app-header">
+  <div class="brand">
+    <img src="https://s.yimg.com/ny/api/res/1.2/7PlwoASYVOibe51oIZQV5g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTcwNQ--/https://media.zenfs.com/en/mashable_articles_863/c6160349d9c9bb7363effe9808d8ed7d" alt="G" />
+    <div>
+      <h1>Gemini AI Chatbot</h1>
+      <small>Multimodal demo • text / image / audio / document</small>
+    </div>
+  </div>
+
+  <div class="mode-select">
+    <label for="mode">Mode</label>
+    <select id="mode">
+      <option value="text">Text → Generate</option>
+      <option value="image">Image → Describe</option>
+      <option value="audio">Audio → Transcribe</option>
+      <option value="document">Document → Summarize</option>
+    </select>
+
+    <!-- Toggle history -->
+    <button id="toggle-history" class="btn ghost" type="button">History</button>
+    <button id="clear-history" class="btn ghost" type="button" title="Clear saved history">Clear</button>
+  </div>
+</header>
+
+
+    <!-- Chat messages -->
+    <main id="chat-box" class="messages"></main>
+
+    <!-- Composer -->
+    <form id="chat-form" class="composer">
+      <!-- History panel -->
+<aside id="history" class="history-panel hidden">
+  <div class="history-header">
+    <strong>Local History</strong>
+  </div>
+  <ul id="history-list" class="history-list"></ul>
+</aside>
+
+  <!-- Row: templates -->
+  <div class="file-row">
+    <label for="templates" class="filename">Templates</label>
+    <select id="templates" class="text-input" style="max-width: 360px;">
+      <option value="">— Select a template (optional) —</option>
+      <!-- opsi akan diisi dari JS sesuai mode -->
+    </select>
+    <span id="tpl-hint" class="hint">Auto-fill prompt from a template.</span>
+  </div>
+
+  <!-- Row: file (HANYA 1 input file hidden + 1 tombol pick) -->
+  <div class="file-row">
+    <button id="pick-file" class="btn ghost" type="button">Choose file</button>
+    <input id="file-input" type="file" hidden />
+    <span id="file-name" class="filename">No file</span>
+    <span id="hint" class="hint">Kirim teks biasa ke Gemini.</span>
+  </div>
+
+  <!-- Row: prompt -->
+  <div class="input-row">
+    <input id="user-input" class="text-input" type="text" placeholder="Type your message..." />
+    <button id="send-btn" class="btn primary" type="submit">Send</button>
+  </div>
+</form>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
